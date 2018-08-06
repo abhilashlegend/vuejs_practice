@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List rendering</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+		</ul>
+
+	</div>
+
+<script type="text/javascript">
+	var vm = new Vue({
+		el:"#app",
+		data: {
+			posts: [
+				{id:1, title: 'Post 1', body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut adipisci itaque quasi nostrum repellendus ipsum corrupti, explicabo unde voluptatem minus at dolorem quos facilis, esse sed officia veritatis consectetur.'},
+				{id:2, title: 'Post 2', body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut adipisci itaque quasi nostrum repellendus ipsum corrupti, explicabo unde voluptatem minus at dolorem quos facilis, esse sed officia veritatis consectetur.'},
+				{id:3, title: 'Post 3', body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut adipisci itaque quasi nostrum repellendus ipsum corrupti, explicabo unde voluptatem minus at dolorem quos facilis, esse sed officia veritatis consectetur.'},
+				{id:4, title: 'Post 4', body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut adipisci itaque quasi nostrum repellendus ipsum corrupti, explicabo unde voluptatem minus at dolorem quos facilis, esse sed officia veritatis consectetur.'},
+				{id:5, title: 'Post 5', body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ut adipisci itaque quasi nostrum repellendus ipsum corrupti, explicabo unde voluptatem minus at dolorem quos facilis, esse sed officia veritatis consectetur.'}
+			]
+		}
+	})
+</script>
+</body>
+</html>

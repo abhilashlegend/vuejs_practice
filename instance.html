@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instances</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="vue_det">
+		<h1>Firstname: {{firstname}} </h1>
+		<h1>Lastname: {{lastname}} </h1>
+		<h1>{{ mydetails() }} </h1>
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#vue_det',
+			data: {
+				firstname: "Ria",
+				lastname: "Sing",
+				address: "Mumbai"
+			},
+			methods: {
+				mydetails: function() {
+					return "I am " + this.firstname + " " + this.lastname;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

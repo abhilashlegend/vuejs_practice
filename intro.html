@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intro</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="intro" style="text-align: center;">
+		<h1> {{ message }}
+	</div>
+	<script type="text/javascript">
+		var vue_det = new Vue({
+			el: '#intro',
+			data: {
+				message: 'My first VueJS task'
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using v-bind</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+	<style type="text/css">
+		.active{ color:green; }
+		.not-active { color:red; }
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1 :title="title" v-bind:class="isActive ? 'active' : 'not-active'">{{message}}</h1>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: "Hello Abhilash",
+				title: "Title has been set from javascript",
+				isActive: false
+			}
+		})
+	</script>
+</body>
+</html>

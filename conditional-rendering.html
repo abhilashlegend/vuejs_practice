@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conditional Rendering</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+	<h1 v-if="isActive">{{ name }}</h1>
+
+	<h1 v-else-if="name === 'Abhilash'">Hey Abhilash What's up?</h1>
+
+	<h1 v-else>No user</h1>
+</div>
+<script type="text/javascript">
+	let vm = new Vue({
+		el: '#app',
+		data: {
+			name: "Abhilash",
+			isActive: true
+		}
+	})
+</script>
+</body>
+</html>

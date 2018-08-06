@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>String Interpolation</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1> {{ message }} </h1>
+		<h1> {{ 20 + number }} </h1>
+		<h1> {{ isActive ? " is Active" : "Not Active" }} </h1>
+		<h1> {{ message.split('').reverse('').join('') }}
+	</div>
+
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data: {
+				message: 'Hello',
+				number: 10,
+				isActive: true
+			}
+		})
+	</script>
+</body>
+</html>

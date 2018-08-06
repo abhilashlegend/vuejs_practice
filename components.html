@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Components</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<posts></posts>
+	</div>
+	<script type="text/javascript">
+		Vue.component('posts', {
+			template: `<input type='text' name='name' />`
+		})
+		var vm = new Vue({
+			el:'#app',
+			data: {
+				message: "Hello"
+			}
+		})	
+	</script>
+</body>
+</html>

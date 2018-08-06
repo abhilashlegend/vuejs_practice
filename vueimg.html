@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VueJs template</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="vue_det">
+		<h1>Firstname: {{firstname}} </h1>
+		<h1>Lastname: {{lastname}} </h1>
+		<div v-html="htmlcontent"></div>
+		<img v-bind:src = "imgsrc" width = "300" height = "250" />
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#vue_det',
+			data: {
+				firstname: "Ria",
+				lastname: "Singh",
+				htmlcontent: "<div><h1>Vue Js Template</h1></div>",
+				imgsrc: "cat.jpg"
+			}
+		})
+	</script>
+</body>
+</html>

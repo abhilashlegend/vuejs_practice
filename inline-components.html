@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inline components</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<posts inline-template>
+			<h1 @click="display">Hello</h1>
+		</posts>
+	</div>
+
+	<script type="text/javascript">
+		Vue.component('posts', {
+			data() {
+				return {
+
+				}
+			},
+			methods: {
+				display() {
+					console.log('hello');
+				}
+			}
+		})
+
+		var vm = new Vue({
+			el: '#app'
+		})
+	</script>
+</body>
+</html>

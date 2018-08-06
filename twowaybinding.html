@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Two way data binding</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<textarea v-model="message" col="1000" rows="10"></textarea>
+		<br />
+
+		{{message}}
+	</div>
+	
+
+	<script type="text/javascript">
+		let vm = new Vue({
+			el:'#app',
+			data: {
+				message: ''
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Components data</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<posts :data="34"></posts>
+	</div>
+	<script type="text/javascript">
+		Vue.component('posts', {
+			props: ['data'],
+			template: `<h1 @click="display">{{message}}</h1>`,
+			data() {
+				return {
+					message: 'Hello Abhilash'
+				}
+			},
+			methods: {
+				display() {
+					console.log("Hello");
+				}
+			}
+		})
+		 new Vue({
+			el: "#app"
+		})
+	</script>
+</body>
+</html>

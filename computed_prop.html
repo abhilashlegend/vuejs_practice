@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Computed properties</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<textarea v-model="message" cols="150" rows="20">{{message}}</textarea>
+		<h1>{{reversedMessage}}
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: "Hello Abhilash"
+			},
+			computed: {
+				reversedMessage: function() {
+					return this.message.split('').reverse().join('');
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Computed properties</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		
+		<h1>Tasks</h1>
+		<input type="checkbox" name="showcompleted" @click="showCompleted">Show completed
+		<ul>
+			<li v-for="task in showCompleted">{{task.description}}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				tasks: [
+				{id:1, description: 'Go to store', completed: true},
+				{id:2, description: 'Finish screencast', completed: false},
+				{id:3, description: 'Make donation', completed: false},
+				{id:4, description: 'Clear inbox', completed: false},
+				{id:5, description: 'Make dinner', completed: false},
+				{id:6, description: 'Clean room', completed: true},
+				]
+			},
+			computed: {
+				showCompleted() {
+					return this.tasks.filter(task => task.completed);
+				} 
+			}
+		})
+	</script>
+</body>
+</html>

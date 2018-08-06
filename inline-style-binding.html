@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inline style binding</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+	<div :style="{color: 'red', fontSize: fontSize + 'px'}">{{ message }}</div>
+
+	<div :style="styleObject">{{message}}</div>
+
+	<div :style="[styleObject, styleObject2]"> {{message}}</div>
+	
+</div>
+
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data: {
+			message: "Hello",
+			fontSize: 30,
+			styleObject: {
+				fontSize:"40px",
+				color:"yellow"
+			},
+			styleObject2: {
+				fontSize:"15px",
+				color:"magenta"
+			}
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Rendering v2</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" name="name" v-model="name">
+		<button @click="addName">Add</button>
+		<ul>
+			<li v-for="name in names">{{name}}</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data: {
+				names: ['abhilash','abhishek','rohit','ravi','raj','sachin'],
+
+				name: ''
+			},
+			methods: {
+				addName: function() {
+					this.names.push(this.name);
+					this.name = '';
+				}
+			}
+		})
+	</script>
+</body>
+</html>

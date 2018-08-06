@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lists</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" name="list" id="text" />
+		<button id="addbtn">Add</button>
+
+		<ul>
+			<li v-for="name in names">{{name}}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el: '#app',
+			data: {
+				names: ['abhilash','abhishek','rohit','ravi','sneha']
+			},
+			mounted() {
+				document.querySelector('#addbtn').addEventListener('click',function() {
+					var name = document.querySelector('#text')
+					vm.names.push(name.value);
+					name.value = '';
+				});
+			}
+		})
+
+	</script>
+</body>
+</html>

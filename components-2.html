@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example of using component</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<task></task>
+		<task>Lorem ispum dolor sit 2</task>
+	</div>
+	<script type="text/javascript">
+		Vue.component('task', {
+			template: '<li>Lorem ipsum dolor <slot></slot></li>',
+		});
+		let app = new Vue({
+			el: '#app'
+		})
+	</script>
+</body>
+</html>

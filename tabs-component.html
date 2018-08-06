@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabs component example</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app" class="container">
+		
+		<tabs>
+
+			<tab name="About Us"  v-bind:selected="true">
+				<h1>Here is the content for the about us tab.</h1>
+			</tab>
+
+			<tab name="About our culture">
+				<h1>Here is the content for the about our culture tab.</h1>
+			</tab>
+
+			<tab name="About our vision">
+				<h1>Here is the content for	the about our vision tab.</h1>
+			</tab>
+
+		</tabs>
+
+	</div>
+	<script type="text/javascript">
+		Vue.component('tabs', {
+			template: `
+				<div>
+					
+					<div class="tabs">
+					  <ul>
+					    <li v-for="tab in tabs" :class="{ 'is-active' : tab.isActive }"><a :href="tab.ref" @click="selectTab(tab)">{{tab.name}}</a></li>
+					  </ul>
+					</div>
+
+					<div class="tab-details">
+						<slot></slot>
+					</div>
+			
+				</div>
+			`,
+			data() {
+				return {
+					tabs: []
+				}
+			},
+			computed: {
+				href() {
+					return '#' + this.name.toLowerCase().replace(/ /g, '-');
+				}
+			},
+			mounted() {
+				console.log(this.$children)
+			},
+			created() {
+				this.tabs = this.$children;
+			},
+			methods: {
+				selectTab(selectedTab) {
+					this.tabs.forEach(tab => {
+						tab.isActive = (tab.name == selectedTab.name);
+					});
+				}
+			}
+		})
+
+		Vue.component('tab', {
+			template: `
+				<div v-show="isActive"><slot></slot></div>
+			`,
+			props: {
+				name: {required: true},
+				selected: {default: false}
+			},
+			data() {
+				return {
+					isActive: false
+				}
+				
+			},
+			mounted() {
+				this.isActive = this.selected;
+			}
+		});
+
+		const app = new Vue({
+			el: '#app'
+		})
+	</script>
+</body>
+</html>

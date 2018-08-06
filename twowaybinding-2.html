@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Two way data binding</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<textarea v-model="options" col="1000" rows="10"></textarea>
+		<br />
+		<fieldset class="form-group">
+			<legend>Radio buttons</legend>
+			<div>
+				<input v-model="options" type="checkbox" value="option 1" class="">Option 1
+			</div>
+			<div>
+				<input v-model="options" type="checkbox" value="option 2" class="">Option 2
+			</div>
+			<div>
+				<input v-model="options" value="option 3" type="checkbox" class="">Option 3
+			</div>
+		</fieldset>
+		<p>You selected {{options.join(', ')}}</p>
+	</div>
+	
+
+	<script type="text/javascript">
+		let vm = new Vue({
+			el:'#app',
+			data: {
+				options: [],
+				message: ''
+			}
+		})
+	</script>
+</body>
+</html>

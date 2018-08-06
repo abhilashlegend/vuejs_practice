@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class binding</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+	<style type="text/css">
+		.isActive { color:green; }
+		.notActive { color:red; }
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1 :class="{isActive:active, notActive: !active }">{{name}}</h1>
+		<h1 :class="[active ? 'isActive' : 'notActive']">{{name}}</h1>
+	</div>
+	<script type="text/javascript">
+		let vm = new Vue({
+			el:'#app',
+			data: {
+				name: "Abhilash",
+				active: false
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Watchers</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+	<h1>Abhilash {{isActive === 'active' ? 'is Active' : 'not active'}}</h1>
+</div>
+<script type="text/javascript">
+	let vm = new Vue({
+		el: "#app",
+		data: {
+			isActive: 'not active'
+		},
+		watch: {
+			isActive: function(newValue) {
+				console.log("Sending an email " + newValue)
+			}
+		}
+	})
+</script>
+</body>
+</html>
