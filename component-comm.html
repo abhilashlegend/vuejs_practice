@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Communicating with components 2</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<coupon></coupon>
+	</div>
+	<script type="text/javascript">
+			window.Event = new class {
+				constructor() {
+					this.vue = new Vue();
+				}
+
+				fire(event, data = null) {
+					this.vue.$emit(event, data);
+				}
+
+				listen(event, callback) {
+					this.vue.$on(event, callback);
+				}
+			}
+			Vue.component('coupon', {
+				template: `<input type="text" @blur="couponApplied" />`,
+				methods: {
+					couponApplied() {
+						Event.fire('applied');
+					}
+				}
+			});
+
+			new Vue({
+				el: '#app',
+				data: {
+					isApplied: false
+				},
+				created() {
+					Event.listen('applied', () => console.log('Handling it!'));
+				}
+			})
+	</script>
+	
+</body>
+</html>

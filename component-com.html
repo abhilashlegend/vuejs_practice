@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Communicating with components</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<coupon @applied="couponApplied"></coupon>
+		<h1 v-show="applied">Coupon has been applied</h1>
+	</div>
+
+	<script type="text/javascript">
+		Vue.component('coupon', {
+			template: `<input type="text" placeholder="Enter the coupon" @blur="couponApplied" />`,
+			methods: {
+				couponApplied() {
+					this.$emit('applied');
+				}
+			}
+		})
+		new Vue({
+			el: '#app',
+			data: {
+				applied: false
+			},
+			methods: {
+				couponApplied() {
+					this.applied = true;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

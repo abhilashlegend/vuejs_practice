@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Modal Component</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click="isActive = true">Open</button>
+		<modal v-show="isActive" @close="isActive = false"></modal>
+	</div>
+
+	<script type="text/javascript">
+		Vue.component('modal', {
+			template: `
+				<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+  	<div class="box">
+	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ea accusantium adipisci voluptas, deserunt aspernatur, sint maxime velit, dolorem dolor pariatur error. Earum accusamus dolore eos odit, optio! Voluptatum, exercitationem.</p>
+   	</div>
+  </div>
+  <!-- when you click emit an event called close -->
+  <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
+</div>
+			`
+		});
+		let app = new Vue({
+			el: '#app',
+			data: {
+				isActive : false
+			}
+		})
+	</script>
+</body>
+</html>
